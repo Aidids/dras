@@ -12,7 +12,7 @@ class FieldExpertise extends Model
     protected $fillable = [
         'name',
         'description',
-        'parent_id', // be null if it is the parent
+        'parent_id', // null if it is root parent
     ];
 
     public function parent()

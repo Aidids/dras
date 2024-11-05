@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fields_expertise', function (Blueprint $table) {
+        Schema::create('field_expertises', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('parent_id')->nullable()->constrained('fields_expertise')->onDelete('cascade');
+            $table->foreignId('parent_id')->nullable()->constrained('field_expertises')->onDelete('cascade');
+            $table->unsignedBigInteger('creator_id')->nullable();
+            $table->foreign('creator_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }

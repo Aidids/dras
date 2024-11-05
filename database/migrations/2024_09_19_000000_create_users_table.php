@@ -20,11 +20,6 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('ic_no')->nullable();
             $table->integer('account_type');
-            $table->unsignedBigInteger('programme_id');
-            $table->foreign('programme_id')->references('id')->on('programmes');
-            $table->unsignedBigInteger('faculty_id');
-            $table->foreign('faculty_id')->references('id')->on('faculties');
-            $table->json('expertise_ids');
 
             $table->rememberToken();
             $table->timestamps();

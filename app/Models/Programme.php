@@ -13,16 +13,22 @@ class Programme extends Model
         'code',
         'name',
         'faculty_id',
+        'creator_id',
     ];
-
-    public function user()
-    {
-        return $this->hasMany(User::class);
-    }
 
     public function faculty()
     {
         return $this->belongsTo(Faculty::class, 'faculty_id');
+    }
+
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'creator_id');
+    }
+
+    public function user()
+    {
+        return $this->hasMany(User::class);
     }
 
     public function project()

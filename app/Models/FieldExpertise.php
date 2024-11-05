@@ -13,7 +13,13 @@ class FieldExpertise extends Model
         'name',
         'description',
         'parent_id', // null if it is root parent
+        'creator_id',
     ];
+
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'creator_id');
+    }
 
     public function parent()
     {

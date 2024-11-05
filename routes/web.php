@@ -11,25 +11,25 @@ Route::get('/', [AuthenticatedSessionController::class, 'create']);
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashbord');
+        return Inertia::render('Dashboard');
     })->name('dashboard');
 
     Route::prefix('location')->group(function () {
-       Route::get('/', [FacultyController::class, 'index'])->name('faculty.index');
+       Route::get('/', [FacultyController::class, 'index'])->name('faculty');
        Route::get('/create', [FacultyController::class, 'create'])->name('faculty.create');
        Route::post('/create', [FacultyController::class, 'store'])->name('faculty.store');
        Route::post('/edit', [FacultyController::class, 'edit'])->name('faculty.edit');
     });
 
     Route::prefix('programme')->group(function () {
-       Route::get('/', [ProgrammeController::class, 'index'])->name('programme.index');
+       Route::get('/', [ProgrammeController::class, 'index'])->name('programme');
        Route::get('/create', [ProgrammeController::class, 'create'])->name('programme.create');
        Route::post('/create', [ProgrammeController::class, 'store'])->name('programme.store');
        Route::post('/edit', [ProgrammeController::class, 'edit'])->name('programme.edit');
     });
 
     Route::prefix('field-expertise')->group(function () {
-        Route::get('/', [FieldExpertiseController::class, 'index'])->name('field-expertise.index');
+        Route::get('/', [FieldExpertiseController::class, 'index'])->name('field-expertise');
         Route::get('/create', [FieldExpertiseController::class, 'create'])->name('field-expertise.create');
         Route::post('/create', [FieldExpertiseController::class, 'store'])->name('field-expertise.store');
         Route::get('/edit', [FieldExpertiseController::class, 'edit'])->name('field-expertise.edit');

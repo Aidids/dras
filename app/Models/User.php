@@ -18,8 +18,6 @@ class User extends Authenticatable
         'phone',
         'ic_no',
         'account_type',
-
-        'programme_id',
         'faculty_id',
         'expertise_ids',
     ];
@@ -34,8 +32,6 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
-            
-            'account_type' => 'boolean',
             'expertise_ids' => 'json',
         ];
     }
